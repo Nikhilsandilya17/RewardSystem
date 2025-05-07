@@ -52,10 +52,8 @@ public class RewardSystem {
     }
 
     private boolean isEligibleForReward(int numberOfOrders, double orderAmount) {
-        return rewardRule.isUserEligible(numberOfOrders)
-                && rewardRule.isOrderEligible(orderAmount);
+        return rewardRule.isUserOrderEligible(numberOfOrders, orderAmount);
     }
-
 
     public void setRewardRule(RewardRule rewardRule) {
         this.rewardRule = rewardRule;

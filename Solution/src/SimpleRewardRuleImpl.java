@@ -7,14 +7,12 @@ public class SimpleRewardRuleImpl extends AbstractRewardRule {
     }
 
     @Override
-    public boolean isUserEligible(int numberOfOrders) {
-        System.out.println("Checking simple reward rule");
-        return numberOfOrders >= MAX_ORDERS && checkNextUserEligibility(numberOfOrders);
+    public boolean isUserOrderEligible(int numberOfOrders, double orderAmount) {
+        if(numberOfOrders>=MAX_ORDERS && orderAmount>=MAX_AMOUNT){
+            System.out.println("User is eligible for SIMPLE reward");
+            return true;
+        }
+        return checkNextUserEligibility(numberOfOrders, orderAmount);
     }
 
-    @Override
-    public boolean isOrderEligible(double orderAmount) {
-        System.out.println("Checking simple reward rule");
-        return orderAmount >= MAX_AMOUNT && checkNextOrderEligibility(orderAmount);
-    }
 }

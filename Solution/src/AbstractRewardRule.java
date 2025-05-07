@@ -5,11 +5,8 @@ public abstract class AbstractRewardRule implements RewardRule {
         this.nextRewardRule = nextRewardRule;
     }
 
-    protected boolean checkNextUserEligibility(int numberOfOrders) {
-        return nextRewardRule == null || nextRewardRule.isUserEligible(numberOfOrders);
+    protected boolean checkNextUserEligibility(int numberOfOrders, double orderAmount) {
+        return nextRewardRule == null || nextRewardRule.isUserOrderEligible(numberOfOrders, orderAmount);
     }
 
-    protected boolean checkNextOrderEligibility(double orderAmount) {
-        return nextRewardRule == null || nextRewardRule.isOrderEligible(orderAmount);
-    }
 }
